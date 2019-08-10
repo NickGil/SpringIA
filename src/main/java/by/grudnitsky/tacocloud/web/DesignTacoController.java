@@ -46,7 +46,7 @@ public class DesignTacoController {
         return new Taco();
     }
 
-    @ModelAttribute
+    /*@ModelAttribute
     public void addIngredientToModel(Model model) {
 
         List<Ingredient> ingredients = new ArrayList<>();
@@ -57,14 +57,14 @@ public class DesignTacoController {
             model.addAttribute(type.toString().toLowerCase(),
                     filterByType(ingredients, type));
         }
-    }
+    }*/
 
     @PostMapping
-    public String processDesign(@Valid Taco design, Errors errors, @ModelAttribute Order order){
+    public String processDesign(@Valid Taco taco, Errors errors, @ModelAttribute Order order){
         if (errors.hasErrors()) {
             return "design";
         }
-        Taco saved = designRepo.save(design);
+        Taco saved = designRepo.save(taco);
         order.addDesign(saved);
         return "redirect:/orders/current";
     }
