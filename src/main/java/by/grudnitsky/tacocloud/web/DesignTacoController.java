@@ -46,19 +46,6 @@ public class DesignTacoController {
         return new Taco();
     }
 
-    /*@ModelAttribute
-    public void addIngredientToModel(Model model) {
-
-        List<Ingredient> ingredients = new ArrayList<>();
-        ingredientRepository.findAll().forEach(ingredients::add);
-
-        Type[] types = Ingredient.Type.values();
-        for(Type type: types) {
-            model.addAttribute(type.toString().toLowerCase(),
-                    filterByType(ingredients, type));
-        }
-    }*/
-
     @PostMapping
     public String processDesign(@Valid Taco taco, Errors errors, @ModelAttribute Order order){
         if (errors.hasErrors()) {
@@ -66,6 +53,7 @@ public class DesignTacoController {
         }
         Taco saved = designRepo.save(taco);
         order.addDesign(saved);
+
         return "redirect:/orders/current";
     }
 
@@ -79,13 +67,12 @@ public class DesignTacoController {
                     filterByType(ingredients, type));
         }
 
-        model.addAttribute("design", new Taco());
         return "design";
-
     }
 
     private List<Ingredient> filterByType(List<Ingredient> ingredients, Type type) {
-        return ingredients.stream()
+        return ingredients
+                .stream()
                 .filter(x -> x.getType().equals(type))
                 .collect(Collectors.toList());
     }
