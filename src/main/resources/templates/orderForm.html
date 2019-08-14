@@ -31,11 +31,11 @@
     </div>
 
     <h3>Deliver my taco masterpieces to...</h3>
-    <label for="name">Name: </label>
-    <input type="text" th:field="*{name}"/>
+    <label for="fullname">Name: </label>
+    <input type="text" th:field="*{fullname}"/>
     <span class="validationError"
-          th:if="${#fields.hasErrors('name')}"
-          th:errors="*{name}">CC Num Error</span>
+          th:if="${#fields.hasErrors('fullname')}"
+          th:errors="*{fullname}">CC Num Error</span>
     <br/>
 
     <label for="street">Street address: </label>
