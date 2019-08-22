@@ -23,7 +23,7 @@ import tacos.data.OrderRepository;
 @CrossOrigin(origins="*")
 public class OrderApiController {
 
-  private OrderRepository repo;
+  /*private OrderRepository repo;
 
   public OrderApiController(OrderRepository repo) {
     this.repo = repo;
@@ -83,6 +83,6 @@ public class OrderApiController {
     try {
       repo.deleteById(orderId);
     } catch (EmptyResultDataAccessException e) {}
-  }
+  }*/
 
 }

@@ -10,11 +10,11 @@ import tacos.Ingredient;
 import tacos.data.IngredientRepository;
 
 @RestController
-@RequestMapping(path="/ingredientsx", produces="application/json")
+@RequestMapping(path="/ingredients", produces="application/json")
 @CrossOrigin(origins="*")
 public class IngredientController {
 
-  private IngredientRepository repo;
+ /* private IngredientRepository repo;
 
   @Autowired
   public IngredientController(IngredientRepository repo) {
@@ -24,6 +24,6 @@ public class IngredientController {
   @GetMapping
   public Iterable<Ingredient> allIngredients() {
     return repo.findAll();
-  }
+  }*/
   
 }
